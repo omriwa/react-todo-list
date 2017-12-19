@@ -45,6 +45,10 @@ function itemReducer(itemList = dataSet , action) {
 			// return itemList;
 		break;
 
+		case 'CLEAR_LIST':
+			return action.payload;
+		break;
+
 		default:
 			return itemList;
 	}

@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 let Component = React.Component;
 
@@ -39,7 +38,7 @@ class TodoItem extends Component {
 				<div  className={classes}>
 					<h3 onClick={this.onToggleEdit}>Title: {this.props.title}</h3>
 					<p onClick={this.onToggleEdit}>Desicription: {this.props.description}</p>
-					<button className="btn btn-danger col-md-8 col-md-offset-2" onClick={() => this.props.deleteHandler(itemId)}>Delete</button>
+					<button className="btn btn-danger col-md-8 col-md-offset-2" onClick={() => this.props.deleteHandler(itemId)}>Delete <span className="fa fa-times"></span></button>
 				</div>
 			);
 		else //edit item
@@ -47,7 +46,7 @@ class TodoItem extends Component {
 				<div className="todo-item">
 					<input onChange={this.onEditItemInfo} type="text" defaultValue={this.state.itemTitle} name='itemTitle'/>
 					<input onChange={this.onEditItemInfo} type="text" defaultValue={this.state.itemDescription} name='itemDescription'/>
-					<button className="btn btn-success col-md-8 col-md-offset-2"
+					<button className="btn btn-success col-md-4 col-md-offset-4"
 					onClick={() => 
 						{
 							this.onToggleEdit();
@@ -58,7 +57,7 @@ class TodoItem extends Component {
 							};
 							this.props.updateHandler(itemInfo);
 						}
-					}>Save!</button>
+					}>Save! <span className="fa fa-floppy-o" ></span></button>
 				</div>
 			);
 	}

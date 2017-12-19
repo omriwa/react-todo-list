@@ -13,6 +13,7 @@ input {
 	background-color: navajowhite;
 	padding: 1%;
 	text-align: center;
+	height: 170px;
 }
 
 #nav {
@@ -46,4 +47,8 @@ div {
     border-left-style: ridge;
     border-right-style: inset;
     margin-top: 20px;
+    background-color: lightgray;
+}
+#nav-btns > * {
+	margin: 0 5px;
 }

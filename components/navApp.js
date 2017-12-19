@@ -11,7 +11,8 @@ class NavApp extends Component {
 				<h3>{this.props.title}</h3>
 				<h3> number of items: {this.props.numOfItems}</h3>
 				<div id='nav-btns'>
-					<button className="btn btn-primary" onClick={() => this.props.handler()}>Add item</button>
+					<button className="btn btn-warning" onClick={() => this.props.clearList()}>Clear List <span className="fa fa-trash-o"></span></button>
+					<button className="btn btn-primary" onClick={() => this.props.addNewItem()}>Add item <span className="fa fa-plus-square-o"></span></button>
 				</div>
 			</div>
 		);
@@ -28,8 +29,19 @@ function addNewItem() {
 	}
 }
 
+function clearList() {
+	return {
+		type: 'CLEAR_LIST',
+		payload: []
+	};
+}
+
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({handler: addNewItem},dispatch);
+	return bindActionCreators(
+		{
+			addNewItem: addNewItem,
+			clearList: clearList
+		},dispatch);
 }
 
 export default connect(null,mapDispatchToProps)(NavApp);
